@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito';
+  color: #2f3e77;
+  font-weight: 700;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+button {
+  border: none;
 }

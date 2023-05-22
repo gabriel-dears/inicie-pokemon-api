@@ -1,16 +1,6 @@
 .app-container {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   background-image: linear-gradient(to bottom, #eff4fa, #f3f6fa, #f6f7fb, #f9f9fb, #fbfbfb);
   display: flex;
   flex-direction: column;
-}
-
-.content-container {
-  height: 100%;
-}
-
-.content-item {
-  height: 50%;
-  padding: 1.8rem;
 }

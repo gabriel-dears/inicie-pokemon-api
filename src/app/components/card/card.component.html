@@ -1,0 +1,44 @@
+<section class="card-container" [style]="{ opacity: options?.opacity || 1 }" >
+      <div class="card-header">
+        <p class="capitalize-text">{{ pokemon?.name }}</p>
+        <p>{{ formatId(pokemon?.id) }}</p>
+      </div>
+      <div class="card-main">
+        <div *ngIf="options?.showButtonPrev" class="card-prev">
+          <inicie-prev-button
+            (onClick)="options?.onClickButtonPrev && options?.onClickButtonPrev()"
+          ></inicie-prev-button>
+        </div>
+        <img
+          style="width: 171px; height: 159px;"
+          [src]="pokemon?.sprites?.front_default"
+        />
+        <div *ngIf="options?.showButtonNext" class="card-next">
+          <button
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              width: 32px;
+              height: 32px;
+              background-color: #ea686d;
+              color: white;
+            "
+            (click)="options?.onClickButtonNext && options?.onClickButtonNext()"
+          >
+            <img src="../../../assets/images/next.svg" />
+          </button>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-item">
+          <p>Altura</p>
+          <p>{{ formatNumber(pokemon?.height) }}m</p>
+        </div>
+        <div class="card-footer-item">
+          <p>Peso</p>
+          <p>{{ formatNumber(pokemon?.weight) }}kg</p>
+        </div>
+      </div>
+    </section>
