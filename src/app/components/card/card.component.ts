@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Pokemon } from 'src/app/core/pokemon';
-import { CardOptions } from './card';
 
 @Component({
   selector: 'inicie-card',
@@ -9,11 +8,26 @@ import { CardOptions } from './card';
 })
 export class CardComponent {
 
-  @Input()
-  options!: CardOptions;
-
   @Input({ required: true })
   pokemon!: Pokemon;
+
+  @Input()
+  showButtonPrev = false;
+
+  @Output()
+  onClickButtonPrev = new EventEmitter<any>();
+
+  @Input()
+  showButtonNext = false;
+
+  @Output()
+  onClickButtonNext = new EventEmitter<any>();
+
+  @Input()
+  opacity = 1;
+
+  @Input()
+  showEmpty = false;
 
   formatId(id: number | undefined): string {
     const idString = id?.toString() || '';

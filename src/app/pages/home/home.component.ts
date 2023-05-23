@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CardOptions } from 'src/app/components/card/card';
 import { Pokemon } from 'src/app/core/pokemon';
 import { PokemonService } from 'src/app/core/pokemon.service';
 
@@ -14,13 +13,10 @@ export class HomeComponent implements OnInit {
   pokemons: Pokemon[] = [];
 
   isLastPrev = false;
-
-  cardOptions: CardOptions = {
-    showButtonNext: true,
-    showButtonPrev: true,
-    onClickButtonPrev: this.onClickPrevButton.bind(this),
-    onClickButtonNext: this.onClickNextButton.bind(this),
-  };
+  showButtonNext = true;
+  showButtonPrev = true;
+  onClickButtonPrev = this.onClickPrevButton.bind(this);
+  onClickButtonNext = this.onClickNextButton.bind(this);
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -51,7 +47,31 @@ export class HomeComponent implements OnInit {
       limit: 3,
       offset: this.offset,
       callbackAfterSubscribe: (pokemons) => {
-        this.pokemons = pokemons;
+        if(pokemons?.length > 0) {
+          this.pokemons = pokemons;
+          this.showButtonPrev = true;
+          this.showButtonNext = true;
+          return;
+        }
+
+        if(this.pokemons[2].id === 10270) {
+          [this.pokemons[0], this.pokemons[1]] = [{...this.pokemons[1]}, {...this.pokemons[2]}];
+          this.showButtonNext = false;
+        } else {
+          [this.pokemons[1], this.pokemons[2]] = [{...this.pokemons[0]}, {...this.pokemons[1]}];
+          this.showButtonPrev = false;
+        }
+
+        this.pokemons = [...this.pokemons];
+
+        if(this.offset < -1 ) {
+          this.offset = -1;
+        }
+
+        if(this.offset > 10268) {
+          this.offset = 10268;
+        }
+
       }
     });
   }

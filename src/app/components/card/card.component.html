@@ -1,44 +1,35 @@
-<section class="card-container" [style]="{ opacity: options?.opacity || 1 }" >
+<section class="card-size card-container" [style]="{ opacity: (opacity || 1) }" >
       <div class="card-header">
-        <p class="capitalize-text">{{ pokemon?.name }}</p>
-        <p>{{ formatId(pokemon?.id) }}</p>
+        <p class="capitalize-text">{{ showEmpty ? '' : pokemon?.name }}</p>
+        <p>{{ showEmpty ? '' :  formatId(pokemon?.id) }}</p>
       </div>
       <div class="card-main">
-        <div *ngIf="options?.showButtonPrev" class="card-prev">
+        <div class="card-prev">
           <inicie-prev-button
-            (onClick)="options?.onClickButtonPrev && options?.onClickButtonPrev()"
+            [ngClass]=" { 'invisible': !showButtonPrev, 'visible': showButtonPrev }"
+            (onClick)="onClickButtonPrev.emit($event)"
           ></inicie-prev-button>
         </div>
         <img
-          style="width: 171px; height: 159px;"
-          [src]="pokemon?.sprites?.front_default"
+        [ngClass]=" { 'invisible': showEmpty, 'visible': !showEmpty }"
+          class="card-image-size"
+          [src]="showEmpty ? '' : pokemon?.sprites?.front_default"
         />
-        <div *ngIf="options?.showButtonNext" class="card-next">
-          <button
-            style="
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 50%;
-              width: 32px;
-              height: 32px;
-              background-color: #ea686d;
-              color: white;
-            "
-            (click)="options?.onClickButtonNext && options?.onClickButtonNext()"
-          >
-            <img src="../../../assets/images/next.svg" />
-          </button>
+        <div class="card-next">
+          <inicie-next-button
+            [ngClass]=" { 'invisible': !showButtonNext, 'visible': showButtonNext }"
+            (onClick)="onClickButtonNext.emit($event)"
+          ></inicie-next-button>
         </div>
       </div>
       <div class="card-footer">
         <div class="card-footer-item">
-          <p>Altura</p>
-          <p>{{ formatNumber(pokemon?.height) }}m</p>
+          <p>{{ showEmpty ? '' : 'Altura'}}</p>
+          <p>{{ showEmpty ? '' : formatNumber(pokemon?.height) + 'm' }}</p>
         </div>
         <div class="card-footer-item">
-          <p>Peso</p>
-          <p>{{ formatNumber(pokemon?.weight) }}kg</p>
+          <p>{{ showEmpty ? '' : 'Peso'}}</p>
+          <p>{{ showEmpty ? '' : formatNumber(pokemon?.weight) + 'kg' }}</p>
         </div>
       </div>
     </section>

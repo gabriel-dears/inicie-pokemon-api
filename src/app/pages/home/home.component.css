@@ -1,0 +1,59 @@
+.custom-size::ng-deep .card-size {
+  width: 222px;
+  height: 271px;
+}
+
+.home-container {
+  display: flex;
+  width: 100%;
+  padding: 0 76px;
+  gap: 28px;
+}
+
+.carrousel-container {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+  width: 30%;
+}
+
+.input-search-container {
+  display: flex;
+  width: 90%;
+}
+
+.input-search {
+  width: 70%;
+  background: #ffffff;
+  border: 1px solid #f4f4f4;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 5px 0px 0px 5px;
+  padding: 8px;
+}
+
+.description-text {
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.form-button {
+  width: 30%;
+  background: #ea686d;
+  box-shadow: 0px 4px 15px #ea686d;
+  border-radius: 0px 5px 5px 0px;
+  color: #ffffff;
+  border: none;
+  padding: 8px;
+  width: 106px;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+}
