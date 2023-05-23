@@ -4,16 +4,21 @@ import { Observable, lastValueFrom, of, switchMap } from 'rxjs';
 import { Pokemon, PokemonPagination } from './pokemon';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokemonService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getAllPaginated(limit = 20, offset = 20): Observable<any> {
     return this.httpClient
-            .get<PokemonPagination>(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
-            .pipe(switchMap(pagination => this.getPokemons(pagination.results.map(b => b.url))));
+      .get<PokemonPagination>(
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+      )
+      .pipe(
+        switchMap((pagination) =>
+          this.getPokemons(pagination.results.map((b) => b.url))
+        )
+      );
   }
 
   getPokemon(url: string): Observable<Pokemon> {
@@ -21,19 +26,15 @@ export class PokemonService {
   }
 
   async getPokemons(urls: string[]): Promise<Pokemon[]> {
-    const requests = urls.map(url => this.getPokemon(url));
-
-    let promises = {};
+    const requests = urls.map((url) => this.getPokemon(url));
+    let promises: any = {};
 
     requests.forEach((req, i) => {
-      promises = {...promises, ['promise' + i]: new Promise<Pokemon>(res => {
-        req.subscribe(result => res(result));
-      })}
+      promises['promise' + i] = new Promise<Pokemon>((res) => {
+        req.subscribe((result) => res(result));
+      });
     });
 
-    const pokemons = await Promise.all<Pokemon[]>(Object.values(promises));
-
-    return pokemons;
+    return await Promise.all<Pokemon[]>(Object.values(promises));
   }
-
 }
