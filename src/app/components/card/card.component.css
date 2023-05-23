@@ -1,11 +1,13 @@
 .card-size {
   width: 267px;
   height: 321px;
+  max-width: 70vw;
 }
 
 .card-image-size {
   width: 171px;
   height: 159px;
+  max-width: 70vw;
 }
 
 .card-container {
@@ -29,6 +31,7 @@
 
 .card-main {
   display: flex;
+  max-width: 70vw;
 }
 
 .card-footer {

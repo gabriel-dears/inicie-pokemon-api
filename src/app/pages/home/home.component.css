@@ -26,16 +26,21 @@
 
 .input-search-container {
   display: flex;
-  width: 90%;
+  max-width: 90vw;
 }
 
 .input-search {
-  width: 70%;
+  width: 333px;
+  max-width: 70vw;
   background: #ffffff;
   border: 1px solid #f4f4f4;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
   border-radius: 5px 0px 0px 5px;
   padding: 8px;
+}
+
+.title {
+  font-size: 55px
 }
 
 .description-text {
@@ -44,8 +49,10 @@
   line-height: 30px;
 }
 
+
 .form-button {
-  width: 30%;
+  width: 106px;
+  max-width: 20vw;
   background: #ea686d;
   box-shadow: 0px 4px 15px #ea686d;
   border-radius: 0px 5px 5px 0px;
@@ -56,4 +63,61 @@
   font-size: 22px;
   line-height: 30px;
   text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+
+  .home-container {
+    flex-direction: column;
+  }
+
+  .search-container, .carrousel-container {
+    width: 100%;
+  }
+
+  /* .search-container {
+    justify-content: center;
+  }
+
+  .input-search-container {
+    justify-content: inherit;
+  }
+
+  .title, .description-text {
+    text-align: center;
+  } */
+
+}
+
+@media screen and (max-width: 730px) {
+
+  .title {
+    font-size: 40px
+  }
+
+  .description-text {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .form-button {
+    font-size: 15px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 32px
+  }
+
+  .description-text {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .form-button {
+    font-size: 13px;
+  }
+
 }

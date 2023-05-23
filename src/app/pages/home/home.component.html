@@ -1,6 +1,6 @@
 <div class="home-container">
   <div class="search-container">
-    <p style="font-size: 55px">
+    <p class="title">
       Explore o mundo dos <span style="color: #ea686d">Pokémons</span>
     </p>
     <p class="description-text">
@@ -20,6 +20,7 @@
   </div>
   <div class="carrousel-container">
     <inicie-card
+      *ngIf="showCornerCards"
       class="custom-size"
       [pokemon]="pokemons[0]"
       [showEmpty]="pokemons[1]?.id === 1"
@@ -33,6 +34,7 @@
       (onClickButtonNext)="onClickButtonNext()"
     ></inicie-card>
     <inicie-card
+      *ngIf="showCornerCards"
       class="custom-size"
       [pokemon]="pokemons[2]"
       [showEmpty]="pokemons[1]?.id === 10270"

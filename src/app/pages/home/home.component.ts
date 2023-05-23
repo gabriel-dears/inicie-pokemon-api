@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/core/pokemon';
 import { PokemonService } from 'src/app/core/pokemon.service';
 
@@ -8,6 +8,14 @@ import { PokemonService } from 'src/app/core/pokemon.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.showCornerCards = window.innerWidth > 950;
+  }
+
+  showCornerCards = true;
+
   offset = 0;
 
   pokemons: Pokemon[] = [];
@@ -25,7 +33,6 @@ export class HomeComponent implements OnInit {
       limit: 3,
       offset: this.offset,
       callbackAfterSubscribe: (pokemons) => {
-        console.log(pokemons)
         this.pokemons = pokemons;
       },
     });
