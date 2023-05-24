@@ -1,0 +1,28 @@
+.most-wanted-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.most-wanted-title {
+  font-size: 30px;
+}
+
+.most-wanted-buttons-container {
+  display: flex;
+  gap: 8px;
+}
+
+.most-wanted-cards-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-card-container {
+  justify-content: center !important;
+}
+
+.custom-size::ng-deep .card-size {
+  width: 222px;
+  height: 271px;
+}

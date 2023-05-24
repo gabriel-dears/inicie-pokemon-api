@@ -1,0 +1,25 @@
+<div class="most-wanted-container">
+  <p class="most-wanted-title">Mais procurados</p>
+  <div *ngIf="visiblePokemons?.length > 1;" class="most-wanted-buttons-container">
+    <inicie-prev-button></inicie-prev-button>
+    <inicie-next-button></inicie-next-button>
+  </div>
+</div>
+<div class="most-wanted-cards-container" [ngClass]="{'single-card-container': visiblePokemons?.length === 1}">
+  <ng-container *ngFor="let item of visiblePokemons">
+    <inicie-card
+      *ngIf="visiblePokemons?.length > 1; else singleCard"
+      class="custom-size"
+      [pokemon]="pokemon"
+    >
+    </inicie-card>
+  </ng-container>
+  <ng-template #singleCard>
+    <inicie-card
+      [pokemon]="pokemons[0]"
+      [showButtonPrev]="true"
+      [showButtonNext]="true"
+    >
+    </inicie-card>
+  </ng-template>
+</div>

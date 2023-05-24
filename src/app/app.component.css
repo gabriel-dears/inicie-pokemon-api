@@ -1,6 +1,30 @@
 .app-container {
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #eff4fa, #f3f6fa, #f6f7fb, #f9f9fb, #fbfbfb);
+  background-image: linear-gradient(
+    to bottom,
+    #eff4fa,
+    #f3f6fa,
+    #f6f7fb,
+    #f9f9fb,
+    #fbfbfb
+  );
   display: flex;
   flex-direction: column;
+}
+
+.logo-style {
+  margin-top: 16px;
+  margin-left: 105px;
+}
+
+.content-container {
+  padding: 0 76px;
+}
+
+.header-style {
+  height: 150px;
+}
+
+.footer-style {
+  margin: 23px 0;
 }

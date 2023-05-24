@@ -19,8 +19,18 @@
   align-items: center;
 }
 
-.capitalize-text {
+.card-title, .card-title-id {
+  display: flex;
+  align-items: end;
+}
+
+.card-title {
   text-transform: capitalize;
+  font-size: 23px;
+}
+
+.card-title-id {
+  font-size: 18px !important;
 }
 
 .card-header {

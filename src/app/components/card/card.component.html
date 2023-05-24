@@ -1,7 +1,7 @@
 <section class="card-size card-container" [style]="{ opacity: (opacity || 1) }" >
       <div class="card-header">
-        <p class="capitalize-text">{{ showEmpty ? '' : pokemon?.name }}</p>
-        <p>{{ showEmpty ? '' :  formatId(pokemon?.id) }}</p>
+        <span class="card-title">{{ showEmpty ? '' : pokemon?.name }}</span>
+        <span class="card-title-id no-bold">{{ showEmpty ? '' :  '#' + formatId(pokemon?.id) }}</span>
       </div>
       <div class="card-main">
         <div class="card-prev">

@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './pages/home/home.module';
+import { CardModule } from './components/card/card.module';
+import { PrevButtonModule } from './components/prev-button/prev-button.module';
+import { NextButtonModule } from './components/next-button/next-button.module';
+import { MostWantedModule } from './components/most-wanted/most-wanted.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,8 @@ import { HomeModule } from './pages/home/home.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    MostWantedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
