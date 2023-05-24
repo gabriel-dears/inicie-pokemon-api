@@ -40,3 +40,7 @@ button {
 .visible {
   visibility: visible;
 }
+
+.no-bold {
+  font-weight: normal;
+}
